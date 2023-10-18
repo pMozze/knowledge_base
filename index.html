@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="/src/main.js" defer></script>
+  <title>AG База знаний</title>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a class="sidebar-header__logotype" href="/">
+        <svg width="32" height="32" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 106.483V80.5517L75.6033 0L111.761 40.8276L99.2704 54.069L74.9459 27.5862L0 106.483ZM19.0652 99.8621L19.7226 97.6552L52.5936 56.8276L72.3162 108.69H57.853L53.9084 100.414L19.0652 99.8621ZM127.539 71.1724V77.2414C117.511 71.1203 109.112 70.1258 96.6407 71.1724C76.6448 72.8505 77.891 100.597 95.9833 104.276C102.113 105.522 112.441 106.215 117.678 103.172C120.51 101.527 122.409 95.0043 119.65 92.6897H109.132V86.6207H124.91C130.995 94.2806 128.066 107.338 116.363 109.793C113.734 110.345 98.613 110.897 93.3536 109.793C77.367 106.439 72.0796 85.662 79.5478 75.0345C88.6382 62.0986 115.323 61.0642 127.539 71.1724ZM74.9459 112L94.0111 128H127.539V111.448L74.9459 112ZM30.8986 93.2414L45.3619 75.5863L51.9361 93.2414H30.8986Z" fill="currentColor" />
+        </svg>
+      </a>
+      <button class="sidebar-header__menu-button" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M3 4h18v2H3V4Zm6 7h12v2H9v-2Zm-6 7h18v2H3v-2Z" />
+        </svg>
+      </button>
+    </div>
+    <div class="sidebar-navigation">
+      <a class="sidebar-navigation-item" href="/">
+        <div class="sidebar-navigation-item__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M6.75 2.5A4.25 4.25 0 0 1 11 6.75V11H6.75a4.25 4.25 0 0 1 0-8.5ZM9 9V6.75A2.25 2.25 0 1 0 6.75 9H9Zm-2.25 4H11v4.25A4.25 4.25 0 1 1 6.75 13Zm0 2A2.25 2.25 0 1 0 9 17.25V15H6.75Zm10.5-12.5a4.25 4.25 0 0 1 0 8.5H13V6.75a4.25 4.25 0 0 1 4.25-4.25Zm0 6.5A2.25 2.25 0 1 0 15 6.75V9h2.25ZM13 13h4.25A4.25 4.25 0 1 1 13 17.25V13Zm2 2v2.25A2.25 2.25 0 1 0 17.25 15H15Z" />
+          </svg>
+        </div>
+        <div class="sidebar-navigation-item__text">База знаний</div>
+      </a>
+      <a class="sidebar-navigation-item" href="/">
+        <div class="sidebar-navigation-item__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="currentColor" d="m12 1l9.5 5.5v11L12 23l-9.5-5.5v-11L12 1ZM5.494 7.078L12 10.844l6.506-3.766L12 3.31L5.494 7.078ZM4.5 8.813v7.534L11 20.11v-7.534L4.5 8.813ZM13 20.11l6.5-3.763V8.813L13 12.576v7.534Z" />
+          </svg>
+        </div>
+        <div class="sidebar-navigation-item__text">Модули и компоненты</div>
+      </a>
+    </div>
+    <div class="sidebar-time">
+      <div class="sidebar-time__hours"></div>
+      <div class="sidebar-time__separator">:</div>
+      <div class="sidebar-time__minutes"></div>
+    </div>
+  </aside>
+  <main class="content">
+    <div class="content-header">
+      <h1 class="content-header__title">База знаний</h1>
+      <form class="content-header__search search" method="get">
+        <label for="search" class="search__wrapper">
+          <input id="search" class="search__control" type="text" name="query" placeholder="Поиск..." required>
+          <button class="search__button" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="currentColor" d="m18.031 16.617l4.283 4.282l-1.415 1.415l-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9s9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617Zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.867-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15Z" />
+            </svg>
+          </button>
+        </label>
+      </form>
+    </div>
+    <div class="content-pagination pagination">
+      <a class="pagination__button" href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+          <path fill="currentColor" d="m12 11.828l-2.828 2.829l-1.415-1.414L12 9l4.243 4.243l-1.415 1.414L12 11.828Z" />
+        </svg>
+      </a>
+      <div class="pagination__items">
+        <a class="pagination__item" href="/">1</a>
+        <a class="pagination__item" href="/">2</a>
+        <a class="pagination__item pagination__item_active" href="/">3</a>
+      </div>
+      <a class="pagination__button pagination__button_disabled" href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+          <path fill="currentColor" d="m12 15l-4.243-4.242l1.415-1.414L12 12.172l2.828-2.828l1.415 1.414L12 15.001Z" />
+        </svg>
+      </a>
+    </div>
+    <div class="content-cards">
+      <div class="content-cards__body">
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+        <div class="content-cards-item">
+          <a class="content-cards-item__title" href="/">Сервис для тестирования отправки HTML писем</a>
+          <div class="content-cards-item__tags">
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+            <a class="tag" href="/">#Bitrix</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-tags">
+      <h2 class="content-tags__title">Поиск по тегам</h2>
+      <div class="content-tags__items">
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+        <a class="content-tags__item tag" href="/">#Bitrix</a>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .preloader {
+      position: absolute;
+
+      top: 0;
+      right: 0;
+
+      width: 100vw;
+      height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #6060F0;
+      background-color: #0F0F0F;
+
+      transition: opacity 250ms ease-out;
+    }
+
+    .preloader svg {
+      transition: scale 250ms ease-out;
+    }
+  </style>
+  <div class="preloader">
+    <svg width="256" height="256" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 106.483V80.5517L75.6033 0L111.761 40.8276L99.2704 54.069L74.9459 27.5862L0 106.483ZM19.0652 99.8621L19.7226 97.6552L52.5936 56.8276L72.3162 108.69H57.853L53.9084 100.414L19.0652 99.8621ZM127.539 71.1724V77.2414C117.511 71.1203 109.112 70.1258 96.6407 71.1724C76.6448 72.8505 77.891 100.597 95.9833 104.276C102.113 105.522 112.441 106.215 117.678 103.172C120.51 101.527 122.409 95.0043 119.65 92.6897H109.132V86.6207H124.91C130.995 94.2806 128.066 107.338 116.363 109.793C113.734 110.345 98.613 110.897 93.3536 109.793C77.367 106.439 72.0796 85.662 79.5478 75.0345C88.6382 62.0986 115.323 61.0642 127.539 71.1724ZM74.9459 112L94.0111 128H127.539V111.448L74.9459 112ZM30.8986 93.2414L45.3619 75.5863L51.9361 93.2414H30.8986Z" fill="currentColor" />
+    </svg>
+  </div>
+  <script>
+    window.addEventListener('load', () => {
+      const preloader = document.querySelector('.preloader');
+      const preloaderIcon = document.querySelector('.preloader svg');
+
+      preloader.style.setProperty('opacity', 0);
+      preloader.style.setProperty('pointer-events', 'none');
+      preloaderIcon.style.setProperty('scale', '.95');
+    });
+  </script>
+
+</body>
+</html>

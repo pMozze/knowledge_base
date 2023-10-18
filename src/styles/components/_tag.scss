@@ -1,0 +1,10 @@
+.tag {
+  color: #505050;
+  outline: none;
+  transition: color 250ms;
+
+  &:hover,
+  &:focus-visible {
+    color: #6060F0;
+  }
+}

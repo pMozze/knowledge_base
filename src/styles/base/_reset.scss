@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+br {
+  margin-top: 1ch;
+}
+
+svg {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.hljs {
+  display: unset !important;
+  padding: 0 !important;
+  overflow-x: unset !important;
+  background-color: transparent !important;
+}

@@ -1,0 +1,50 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  row-gap: 20px;
+
+  &__button {
+    padding: 0;
+
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+    user-select: none;
+
+    color: #FFF;
+    background: none;
+
+    transition: color 250ms;
+
+    &_disabled {
+      color: #505050;
+      pointer-events: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: #505050;
+    }
+  }
+
+  &__items {
+    display: flex;
+  }
+
+  &__item {
+    outline: none;
+    padding: 10px 20px;
+    transition: color 250ms;
+
+    &_active {
+      color: #6060F0;
+      pointer-events: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: #6060F0;
+    }
+  }
+}

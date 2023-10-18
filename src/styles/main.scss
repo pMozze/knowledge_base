@@ -1,0 +1,46 @@
+@import './base/reset';
+@import './base/typography';
+
+@import './layouts/content';
+@import './layouts/sidebar';
+
+@import './components/button';
+@import './components/pagination';
+@import './components/search';
+@import './components/tag';
+
+::-moz-selection {
+  color: #6060F0;
+  background-color: rgba(#6060F0, .15);
+}
+
+::selection {
+  color: #6060F0;
+  background-color: rgba(#6060F0, .15);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6060F0 transparent;
+
+  &::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #6060F0;
+  }
+}
+
+body {
+  display: flex;
+  height: 100vh;
+
+  color: #FFF;
+  background-color: #0F0F0F;
+}

@@ -1,0 +1,77 @@
+.button {
+  position: relative;
+  padding: 15px 30px;
+
+  display: block;
+  width: fit-content;
+
+  font-weight: 700;
+
+  outline: none;
+  border-radius: 15px;
+
+  cursor: pointer;
+  user-select: none;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+
+    top: 0;
+    right: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: inherit;
+    transition: opacity 250ms ease;
+  }
+
+  &::before {
+    z-index: -1;
+  }
+
+  &::after {
+    z-index: -2;
+  }
+
+  &_primary::before {
+    background-image: linear-gradient(135deg, #6233FD 0%, #451FC1 100%);
+  }
+
+  &_primary::after {
+    background-image: linear-gradient(135deg, #17171F 100%, #17171F 100%);
+  }
+
+  &_secondary::before {
+    background-image: linear-gradient(135deg, #17171F 100%, #17171F 100%);
+  }
+
+  &_secondary::after {
+    background-image: linear-gradient(135deg, #6233FD 0%, #451FC1 100%);
+  }
+
+  &_primary:hover::before,
+  &_primary:focus-visible::before,
+  &_secondary:hover::before,
+  &_secondary:focus-visible::before {
+    opacity: 0;
+  }
+
+  // &_primary {
+  //   background: linear-gradient(135deg, #6233FD 0%, #451FC1 100%);
+
+  //   &:hover {
+  //     background: linear-gradient(135deg, #17171F 100%, #17171F 100%);
+  //   }
+  // }
+
+  // &_secondary {
+  //   background: linear-gradient(0deg, #17171F 100%, #17171F 100%);
+
+  //   &:hover {
+  //     background: linear-gradient(135deg, #6233FD 0%, #451FC1 100%);
+  //   }
+  // }
+}

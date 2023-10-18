@@ -1,0 +1,162 @@
+.sidebar {
+  padding: 100px 20px;
+  flex-shrink: 0;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-right: 1px solid #16161F;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    padding-inline: 25px;
+
+    &__logotype {
+      color: #6060F0;
+      outline: none;
+    }
+
+    &__menu-button {
+      padding: 0;
+
+      border: none;
+      outline: none;
+
+      color: #505050;
+      background: none;
+
+      cursor: pointer;
+      user-select: none;
+
+      transition: color 250ms ease;
+
+      &:hover,
+      &:focus-visible {
+        color: #6060F0;
+      }
+    }
+  }
+
+  &-navigation {
+    margin-top: 50px;
+
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+      padding: 25px;
+
+      display: flex;
+      align-items: center;
+      column-gap: 15px;
+
+      font-weight: 700;
+      color: #505050;
+
+      outline: none;
+      border-radius: 15px;
+
+      &__icon,
+      &__text {
+        transition: color 250ms;
+      }
+
+      &_active &__icon {
+        color: #6060F0;
+      }
+
+      &_active &__text {
+        color: #FFF;
+      }
+
+      &:hover,
+      &:focus-visible {
+        background-image: linear-gradient(90deg, rgba(20, 20, 30, .5), rgb(20, 20, 30));
+      }
+
+      &:hover &__icon,
+      &:focus-visible &__icon {
+        color: #6060F0;
+      }
+
+      &:hover &__text,
+      &:focus-visible &__text {
+        color: #FFF;
+      }
+    }
+  }
+
+  &-time {
+    margin-top: auto;
+
+    display: flex;
+    justify-content: center;
+
+    font-size: 32px;
+    font-weight: 500;
+    text-align: center;
+
+    color: #505050;
+    user-select: none;
+
+    transition: color 250ms;
+
+    &:hover {
+      color: #FFF;
+    }
+  }
+}
+
+.sidebar_collapsed .sidebar {
+  &-header__logotype {
+    display: none;
+  }
+
+  &-navigation-item__text {
+    display: none;
+  }
+
+  &-time {
+    flex-direction: column;
+
+    &__separator {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1279px) {
+  .sidebar {
+    padding: 50px 10px;
+
+    &-header {
+      &__logotype {
+        display: block !important;
+      }
+
+      &__menu-button {
+        display: none;
+      }
+    }
+
+    &-navigation-item {
+      &__text {
+        display: none;
+      }
+    }
+
+    &-time {
+      flex-direction: column;
+
+      &__separator {
+        display: none;
+      }
+    }
+  }
+}
