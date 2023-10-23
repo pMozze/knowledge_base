@@ -19,3 +19,11 @@ if (window.innerWidth > 1279) {
 } else {
   sidebar.classList.toggle('sidebar_collapsed', true);
 }
+
+if (window.location.pathname === '/' || window.location.pathname.startsWith('/articles')) {
+  document.querySelector('.sidebar-navigation-item[href="/articles/"]').classList.add('sidebar-navigation-item_active');
+}
+
+if (window.location.pathname.startsWith('/modules')) {
+  document.querySelector('.sidebar-navigation-item[href="/modules/"]').classList.add('sidebar-navigation-item_active');
+}

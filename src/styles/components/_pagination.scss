@@ -1,7 +1,6 @@
 .pagination {
   display: flex;
   align-items: center;
-  row-gap: 20px;
 
   &__button {
     padding: 0;
@@ -45,6 +44,14 @@
     &:hover,
     &:focus-visible {
       color: #6060F0;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .pagination {
+    &__item {
+      padding-inline: 10px;
     }
   }
 }

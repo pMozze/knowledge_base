@@ -53,50 +53,148 @@
           <a class="button button_primary" href="/" download>Скачать</a>
         </div>
       </div>
-      <div class="content__raw">
-        Компонент предоставляет интерфейс поиска по сотрудникам по полям Имя, Фамилия, Отчество, E-mail, Должность, Мобильный телефон и по пользовательскому свойству&nbsp;UF_PHONE_ADD(Добавочный телефон), если оно есть в системе. Строка поиска + алфавит (поиск по первой букве).<br>
-        Обязательно подключить Jquery в header.php или footer.php шаблона сайта.<br>
-        Пагинация происходит по прокрутке вниз страницы (lazyload)<br>
-        <br>
-        <pre>
-          1) Убедиться, что в папке /local/components/ нет компонентов с аналогичным названием и в корне сайта нет папок с совпадающими названиями.
-  2) Не обязательно, но можно создать для пользователей пользовательское свойство UF_PHONE_ADD (добавочный телефон), если нужно искать по добавочному телефону.
+      <div class="content__raw"><img src="/upload/medialibrary/bdb/rjs7xcmvu7aayt4exld7nkqsp4kndf1c.png"><br>
+        HTML:
+        <pre class="preshka"><pre style="height: 218px; width: 390.6px;"><code data-highlighted="yes" class="hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"wrap"</span>&gt;</span>
+      
+          <span class="hljs-comment">&lt;!-- section --&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"center"</span>&gt;</span>
+      
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"video"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"video-play"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"video-over"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">video</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myVideo"</span> <span class="hljs-attr">preload</span>=<span class="hljs-string">"auto"</span> <span class="hljs-attr">poster</span>=<span class="hljs-string">"http://media.w3.org/2010/05/sintel/poster.png"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'mp4'</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://media.w3.org/2010/05/sintel/trailer.mp4"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'video/mp4'</span> /&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'webm'</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://media.w3.org/2010/05/sintel/trailer.webm"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'video/webm'</span> /&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'ogv'</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://media.w3.org/2010/05/sintel/trailer.ogv"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'video/ogg'</span> /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">video</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-comment">&lt;!--/section --&gt;</span>
+      
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      
+      
+      </code></pre>
         </pre>
-        <br>
-        <pre>
-          <code>
-            .button {
-              padding: 15px 30px;
-              
-                display: block;
-                width: fit-content;
-                
-                font-weight: 700;
-                
-                outline: none;
-                border-radius: 15px;
-                
-                cursor: pointer;
-                user-select: none;
-                
-                &_primary {
-                  background: linear-gradient(135deg, #6233FD 0%, #451FC1 100%);
-                
-                  &:hover {
-                    background: linear-gradient(135deg, #17171F 100%, #17171F 100%);
-                  }
-                }
-                
-                &_secondary {
-                  background: linear-gradient(0deg, #17171F 100%, #17171F 100%);
-                
-                &:hover {
-                  background: linear-gradient(135deg, #6233FD 0%, #451FC1 100%);
-                }
-              }
+        CSS:
+        <pre class="preshka"><code data-highlighted="yes" class="hljs language-css"><span class="hljs-selector-tag">html</span>,
+      <span class="hljs-selector-tag">body</span> {
+        <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+        <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+        <span class="hljs-attribute">font-family</span>: sans-serif;
+        <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;
+        <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.4</span>;
+        <span class="hljs-attribute">color</span>: <span class="hljs-number">#555</span>;
+        <span class="hljs-attribute">background</span>: <span class="hljs-number">#fff</span>;
+      }
+      
+      * {
+        <span class="hljs-attribute">box-sizing</span>: border-box;
+      }
+      
+      <span class="hljs-selector-id">#wrap</span> {
+        <span class="hljs-attribute">position</span>: relative;
+      }
+      
+      <span class="hljs-selector-class">.section</span> {
+        <span class="hljs-attribute">padding</span>: <span class="hljs-number">40px</span> <span class="hljs-number">20px</span>;
+        <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#ddd</span>;
+      
+        &amp;<span class="hljs-selector-pseudo">:last-child</span> {
+          <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">0</span>;
+        }
+      
+        &amp;<span class="hljs-attr">--d</span> {
+          <span class="hljs-attribute">background</span>: <span class="hljs-number">#000</span>;
+        }
+      }
+      
+      <span class="hljs-selector-class">.center</span> {
+        <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+        <span class="hljs-attribute">max-width</span>: <span class="hljs-number">980px</span>;
+        <span class="hljs-attribute">margin</span>: auto;
+      }
+      
+      <span class="hljs-selector-id">#video</span> {
+        <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+        <span class="hljs-attribute">position</span>: relative;
+      
+        &amp;-over {
+          <span class="hljs-attribute">position</span>: absolute;
+          <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+          <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+          <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+          <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+          <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;
+          <span class="hljs-attribute">display</span>: none;
+        }
+      
+        &amp;-play {
+          <span class="hljs-attribute">position</span>: absolute;
+          <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+          <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+          <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+          <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+          <span class="hljs-attribute">margin</span>: auto;
+          <span class="hljs-attribute">width</span>: <span class="hljs-number">56px</span>;
+          <span class="hljs-attribute">height</span>: <span class="hljs-number">56px</span>;
+          <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
+          <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">4px</span> <span class="hljs-number">#fff</span>;
+          <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;
+          <span class="hljs-attribute">cursor</span>: pointer;
+          <span class="hljs-attribute">transition</span>: .<span class="hljs-number">2s</span> ease;
+          <span class="hljs-attribute">transition-property</span>: opacity, visibility;
+      
+          &amp;<span class="hljs-selector-pseudo">::before</span> {
+            <span class="hljs-attribute">content</span>: <span class="hljs-string">''</span>;
+            <span class="hljs-attribute">display</span>: block;
+            <span class="hljs-attribute">position</span>: absolute;
+            <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+            <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+            <span class="hljs-attribute">margin</span>: auto;
+            <span class="hljs-attribute">left</span>: <span class="hljs-number">21px</span>;
+            <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
+            <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
+            <span class="hljs-attribute">border</span>: <span class="hljs-number">20px</span> solid transparent;
+            <span class="hljs-attribute">border-top-width</span>: <span class="hljs-number">12px</span>;
+            <span class="hljs-attribute">border-bottom-width</span>: <span class="hljs-number">12px</span>;
+            <span class="hljs-attribute">border-left-color</span>: <span class="hljs-number">#fff</span>;
+            <span class="hljs-attribute">border-right-width</span>: <span class="hljs-number">0</span>;
+            <span class="hljs-attribute">transition</span>: transform .<span class="hljs-number">2s</span> ease;
+          }
+      
+          &amp;<span class="hljs-selector-pseudo">:hover</span> {
+            &amp;<span class="hljs-selector-pseudo">::before</span> {
+              <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">1.2</span>);
             }
-          </code>
+          }
+        }
+      
+        </code></pre>JS:<br>
+        <pre class="preshka"><pre style="height: 218px; width: 390.6px;"><code data-highlighted="yes" class="hljs language-arcade">$(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+        <span class="hljs-keyword">var</span> <span class="hljs-symbol">$videoCo</span>ntainer = $(<span class="hljs-string">'#video'</span>),
+          <span class="hljs-symbol">$videoCo</span>ntrols = $(<span class="hljs-string">'.video-control'</span>),
+          <span class="hljs-symbol">$video</span> = $(<span class="hljs-string">'#myVideo'</span>)[<span class="hljs-number">0</span>];
+      
+        <span class="hljs-symbol">$videoCo</span>ntrols.click(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+          <span class="hljs-keyword">if</span> (<span class="hljs-symbol">$video</span>.paused) {
+            <span class="hljs-symbol">$video</span>.play();
+            <span class="hljs-symbol">$videoCo</span>ntainer.addClass(<span class="hljs-string">'video-is-playing'</span>);
+          } <span class="hljs-keyword">else</span> {
+            <span class="hljs-symbol">$video</span>.pause();
+            <span class="hljs-symbol">$videoCo</span>ntainer.removeClass(<span class="hljs-string">'video-is-playing'</span>);
+            <span class="hljs-comment">//  возвращаем постер</span>
+            <span class="hljs-symbol">$video</span>.load();
+          }
+        });
+      });</code></pre>
         </pre>
+        <br>
+        <br>
       </div>
     </div>
   </main>

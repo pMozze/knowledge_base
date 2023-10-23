@@ -7,4 +7,9 @@
   &:focus-visible {
     color: #6060F0;
   }
+
+  &_active {
+    color: #6060F0;
+    pointer-events: none;
+  }
 }
